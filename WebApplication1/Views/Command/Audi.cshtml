@@ -1,0 +1,31 @@
+﻿@using TaxiAdmin
+@using TaxiProject_2._1.Models;
+
+@using TaxiProject_2._1.Repository;
+
+@model WebApplication1.Controller.Common;
+
+<br />
+
+<div class="row mt-5 mb-2">
+
+    @{
+        <div class="col-lg-6">
+
+            <img class="img-thumbnail" id="newbus" src="@Model.bus[1].Img" alt="@Model.bus[1].Make" />
+            <h2> @Model.taxi[1].Make</h2>
+            <p class="t">@Model.taxi[1].ToString()</p>
+            <p><a class="btn btn-warning" href="https://localhost:5001/Command/InfoCar">More_Info</a> </p>
+
+
+
+        </div>
+    }
+
+
+
+
+
+
+
+</div>

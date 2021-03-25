@@ -1,0 +1,68 @@
+﻿@using TaxiAdmin
+@using TaxiProject_2._1.Models;
+
+@using TaxiProject_2._1.Repository;
+
+@model WebApplication1.Controller.Common;
+
+
+
+<div class="row mt-5 mb-2">
+
+    @{ foreach (var o in Model.taxi)
+        {
+            <div class="col-lg-6">
+
+                <img class="img-thumbnail" src="@o.Img" alt="@o.Make" />
+                <h2> @o.Make</h2>
+                <p class="t">@o.ToString()</p>
+                <p ><a class="btn btn-warning" href="https://localhost:5001/Command/InfoCar">More_Info</a> </p>
+
+
+
+            </div>
+
+
+
+        }
+
+        foreach (var o in Model.bus)
+        {
+<div class="col-lg-6">
+
+    <img class="img-thumbnail" src="@o.Img" alt="@o.Make" />
+    <h2> @o.Make</h2>
+    <p class="t">@o.ToString()</p>
+
+   
+    <p>
+        <a class="btn btn-warning"
+           href="https://localhost:5001/Command/InfoBus">More_Info</a>
+
+
+
+    </p>
+
+
+
+</div>
+
+
+
+        }
+
+    }
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+

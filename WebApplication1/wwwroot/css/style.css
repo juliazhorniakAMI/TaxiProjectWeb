@@ -1,0 +1,110 @@
+﻿*, *:before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+:focus, :active {
+    outline: none;
+}
+
+a:focus, a:active {
+    outline: none;
+}
+
+nav, footer, header, aside {
+    display: block;
+}
+img {
+    outline:none;
+    vertical-align: top;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    font-size: 100%;
+    line-height: 1;
+    font-size: 14px;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+ul li {
+    list-style: none;
+}
+
+
+
+#heading {
+    font-family: 'Roboto Slab', serif;
+    font-size: 100px;
+    font-weight: 300;
+    box-shadow: 2px 2px 5px brown;
+    margin-left: 100px;
+}
+h2:hover {
+
+    color:crimson;
+}
+body {
+    background-color: #5c5cd6;
+}
+.t {
+    color: cornsilk;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 200;
+    text-shadow: 1px 1px 2px black;
+    
+}
+a:hover {
+    background-color: darkslategrey;
+}
+a:visited {
+    background-color: deepskyblue;
+}
+
+.list {
+    margin: 0 0 50px 0;
+}
+
+    .list li {
+        font-family: 'Roboto Slab', serif;
+        font-size: 20px;
+        margin: 0 0 20px 0;
+        background: url('../img/png-transparent-check-mark-computer-icons-checkmark-angle-hand-website.png') 0 0/20px 20px no-repeat;
+        padding: 0 0 0 30px;
+    }
+
+        .list li:hover {
+            color:darkgreen;
+            background: url('../img/greenstick.png') 0 0/20px 20px no-repeat;
+   
+            }
+
+
+ .art {
+    
+    font-size: 19px;
+    color:black;
+    text-shadow: 1px 1px 1px black;
+}
+.name {
+    font-size: 35px;
+    font-weight:200;
+    font-family: 'Roboto Slab', serif;
+    color:yellow;
+
+
+}
+#lo {
+    color:blanchedalmond;
+margin-left:50px;
+font-size:20px;
+
+}
+#carouselExampleIndicators:active {
+    visibility: visible;
+    
+}
+

@@ -1,0 +1,107 @@
+﻿
+@using TaxiAdmin
+@using TaxiProject_2._1.Models;
+
+@using TaxiProject_2._1.Repository;
+
+@model WebApplication1.Controller.Common;
+
+
+
+
+
+   
+<!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    <div class="container marketing">
+
+        <!-- Three columns of text below the carousel -->
+        <div class="row">
+            <div class="col-lg-4">
+                <img class="rounded-circle" width="140" height="140" src="/img/people.png" alt="Alternate Text" />
+                @{
+                    <ul class="list">
+                      
+                                        <li> <strong class="name">@Model.drbus[0].Name</strong></li></ul>
+                       
+
+
+                            <strong style="color:aliceblue;font-size:25px">Rate: </strong>
+                            <article class="art">@Model.drbus[0].Rate</article>
+                            <strong style="color:aliceblue;font-size:25px">Price: </strong>
+                            <article class="art">@Model.drbus[0].Price</article>
+                            <br />
+
+
+
+                            <strong style="color:aliceblue;font-size:30px">Taxi: </strong> <br />
+                            <article class="art"> @Model.bus[0].ToString()</article>
+
+
+
+
+
+
+
+
+                            }
+
+                </div>
+            <div class="col-lg-4">
+
+
+                <img class="rounded-circle" width="140" height="140" src="/img/people.png" alt="Alternate Text" />
+                @{
+                    <ul class="list">
+
+                        <li> <strong class="name">@Model.drbus[1].Name</strong></li>
+                    </ul>
+                 
+
+
+
+
+
+
+
+                    <strong style="color:aliceblue;font-size:25px">Rate: </strong>
+                    <article class="art">@Model.drbus[1].Rate</article>
+
+                    <strong style="color:aliceblue;font-size:25px">Price: </strong>
+                    <article class="art">
+                        @Model.drbus[1].Price
+                    </article>
+                    <br />
+
+                    <strong style="color:aliceblue;font-size:25px">Taxi: </strong>
+                    <article class="art">
+                        @Model.bus[1].ToString()
+                    </article>
+
+
+
+
+
+
+
+
+
+                }
+            </div>
+          
+    </div>
+
+
+        
+
+        
+
+    
+
+   
+
+    </div>
+
+  
