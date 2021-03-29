@@ -15,9 +15,9 @@ namespace TaxiProject_2._1.Repository
 		}
 
 
-		public bool Add(Bus bus)
+		public override void Add(Bus bus)
 		{
-			return AddRep(bus);
+			AddRep(bus);
 		}
 
 
@@ -36,7 +36,7 @@ namespace TaxiProject_2._1.Repository
 				int MaxSpeed;
 				string img;
 
-				using (StreamReader sr = new StreamReader("Bus.txt"))
+				using (StreamReader sr = new StreamReader(@"C:\c#\WebApplication1\TaxiAdmin\bin\Debug\netcoreapp3.1\Bus.txt"))
 				{
 
 					while (!sr.EndOfStream)
@@ -69,13 +69,25 @@ namespace TaxiProject_2._1.Repository
 			}
 		}
 
+		public override void ChangeNameTaxi(int index, string name)
+		{
+
+			entity[index].Make = name;
+
+		}
+		public override void ChangeImgTaxi(int index, string name)
+		{
+
+			entity[index].Img = name;
+
+		}
 		public override void WriteToStorage()
 		{
 
 			try
 			{
 			
-				using (StreamWriter sw = new StreamWriter("Bus.txt", false))
+				using (StreamWriter sw = new StreamWriter(@"C:\c#\WebApplication1\TaxiAdmin\bin\Debug\netcoreapp3.1\Bus.txt", false))
 				{
 
 					foreach (Bus o in entity)

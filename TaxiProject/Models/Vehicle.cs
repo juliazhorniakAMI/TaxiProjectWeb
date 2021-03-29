@@ -6,12 +6,12 @@ namespace TaxiProject_2._1.Models
 {
 	public class Vehicle : Entity
 	{
-		protected string img;
+		public string img;
 
 		protected int number;
 		protected string color;
 		protected int maxSpeed;
-		protected string make;
+		public string make;
 		public string Img { get { return img; } set { img = value; } }
 		public int Number { get { return number; } set { number = value; } }
 		public string Color { get { return color; } set { color = value; } }

@@ -29,24 +29,7 @@ namespace UnitTestProject3
             Assert.IsNotNull(driverCARRepository);
         }
 
-        [TestMethod]
-        public void Rep_DeletByIndex_Equal_True()
-
-        {
-
-          
-         
-            var taxiRepository = new TaxiRepository();
-           
-            var expected = new List<Taxi>() { new Taxi("Audi", 1232, "red", 222, "/img/audi.jpg") };
-            taxiRepository.deleteByIndex(1);
-          
-         
-
-            CollectionAssert.AreEqual(expected,taxiRepository.Ent);
-          
-
-        }
+      
         [TestMethod]
         public void Rep_ChangeRating_Equal_True()
 
@@ -65,24 +48,7 @@ namespace UnitTestProject3
 
 
         }
-        [TestMethod]
-        public void Rep_Add_Equal_True()
-
-        {
-
-            var driverRepository = new DriverCarRepository();
-            DriverCar d = new DriverCar("Yura", 4, 140);
-            driverRepository.Add(d);
-           
-
-            var expected = new List<DriverCar>() { new DriverCar("Ivan", 5 ,150),new DriverCar("Pavlo", 2, 240), new DriverCar("Yura", 4, 140) };
-
-
-
-            CollectionAssert.AreEqual(expected, driverRepository.Ent);
-
-
-        }
+       
 
 
     }

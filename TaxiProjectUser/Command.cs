@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TaxiProject_2._1.Models;
 using TaxiProject_2._1.Repository;
-namespace TaxiAdmin
+namespace TaxiProjectUser
 {
     public class Command
     {
@@ -18,23 +18,7 @@ namespace TaxiAdmin
 
 
 
-        public void AddTaxi(Taxi taxi)
-        {
-            taxiRepository.Add(taxi);
-        }
-
-        public void AddBus(Bus taxibus)
-        {
-            busRepository.Add(taxibus);
-        }
-        public void AddDriverCar(DriverCar driver)
-        {
-            driverCARRepository.Add(driver);
-        }
-        public void AddDriverBus(DriverBus driver)
-        {
-            driverBUSRepository.Add(driver);
-        }
+     
         public void Print()
         {
             taxiRepository.Ent.ForEach((o => { Console.WriteLine(o); }));
@@ -43,18 +27,18 @@ namespace TaxiAdmin
 
         }
 
-        public void EditTaxi()
+    
+            public void RentTaxi()
         {
-            var nameoftaxi = "";
+           
+            string nameoftaxi = "x";
             int k;
-            Console.WriteLine("Enter 1 if change a taxi and 0 for bus: \n");
+            bool b = true;
+            Console.WriteLine("Enter the number of seats from 1-8 you need for a taxi: \n");
 
             k = Convert.ToInt32(Console.ReadLine());
 
-
-
-
-            if (k == 1)
+            if (k <= 4)
             {
                 for (int i = 0; i < taxiRepository.Ent.Count(); i++)
                 {
@@ -63,51 +47,43 @@ namespace TaxiAdmin
 
 
                 }
-                Console.WriteLine("Write the name of a taxi car you want to change: \n");
+                
+                Console.WriteLine("Write the name of a taxi car you want to rent: \n");
                 nameoftaxi = Console.ReadLine();
                
-                Console.WriteLine("Write the url of img of a taxi car you want to change: \n");
-                string link = Console.ReadLine();
-
+                
 
                 for (int i = 0; i < taxiRepository.Ent.Count(); i++)
-                {
+                        {
 
-                    if (!(nameoftaxi.Contains("____NOT_AVAILABLE")))
+
+                    if (nameoftaxi.Contains("____NOT_AVAILABLE"))
                     {
-                      
+                        b = false;
 
-                        Console.WriteLine("Incorrect entering");
+                        Console.WriteLine("\n- - -\nNot available right now :(\n - - -\n");
                         break;
                     }
                     if (nameoftaxi == taxiRepository.Ent[i].Make)
-                    {
-                        char[] tmp = new char[nameoftaxi.Length - 17];
-                        for (int j = 0; j < nameoftaxi.Length - 17; j++)
-                        {
+                            {
 
-                            tmp[j] = nameoftaxi[j];
+                     
 
-                        }
-
-                        string s = "";
-                        foreach (var o in tmp) {
-
-                            s += o;
-                        }
-
-
-                        taxiRepository.ChangeNameTaxi(i, s);
-                        taxiRepository.ChangeImgTaxi(i, link);
+                        taxiRepository.ChangeNameTaxi(i, nameoftaxi+"____NOT_AVAILABLE");
+                        taxiRepository.ChangeImgTaxi(i, "/img/notavailable.jpg");
                         taxiRepository.WriteToStorage();
-                        break;
 
                     }
-                }
+                        }
+                    
+
+                
+
+              
 
 
             }
-            else if (k==0)
+            else if (5 <= k && k <= 8)
             {
                 for (int i = 0; i < busRepository.Ent.Count(); i++)
                 {
@@ -117,48 +93,73 @@ namespace TaxiAdmin
 
 
                 }
-                Console.WriteLine("Write the name of a taxi bus you want to change: \n");
+                Console.WriteLine("\nWrite the name of a taxi bus you want to rent: ");
+
                 nameoftaxi = Console.ReadLine();
-                Console.WriteLine("Write the url of img of a taxi bus you want to change: \n");
-                string link = Console.ReadLine();
+               
 
+                   
+                        for (int i = 0; i < busRepository.Ent.Count(); i++)
+                        {
+                    if (nameoftaxi.Contains("____NOT_AVAILABLE"))
+                    {
 
-                for (int i = 0; i < busRepository.Ent.Count(); i++)
-                {
+                        b = false;
+                        Console.WriteLine("Not available right now :(");
+                        break;
+                    }
 
                     if (nameoftaxi == busRepository.Ent[i].Make)
-                    {
-                        char[] tmp = new char[nameoftaxi.Length - 17];
-                        for (int j = 0; j < nameoftaxi.Length - 17; j++)
-                        {
-
-                            tmp[j] = nameoftaxi[j];
-
-                        }
-
-                        string s = "";
-                        foreach (var o in tmp)
-                        {
-
-                            s += o;
-                        }
-
-
-
-                        busRepository.ChangeNameTaxi(i, s);
-                        busRepository.ChangeImgTaxi(i, link);
+                            {
+                        
+                        busRepository.ChangeNameTaxi(i, nameoftaxi + "____NOT_AVAILABLE");
+                        busRepository.ChangeImgTaxi(i, "/img/notavailable.jpg");
                         busRepository.WriteToStorage();
-                        break;
 
                     }
-                }
+                        }
+                    
+
+               
+               
             }
+            if (b == true)
+            {
+
+                try
+                {
+
+
+                    using (StreamWriter sw = new StreamWriter("Client.txt", false))
+                    {
+                        string firstName;
+                        string address;
+                        Console.WriteLine("Enter the Name of the client: ");
+                        firstName = Console.ReadLine();
+                        Console.WriteLine("Enter the Address of the client: ");
+                        address = Console.ReadLine();
+                        Client c = new Client(firstName, address);
+                        sw.WriteLine(firstName + " " + address);
+                        Console.WriteLine($"- - - - - - >  You: {firstName},on the street {address},have rented a taxi: {nameoftaxi} and been added to base__\n");
+
+
+                    }
+
+                }
+
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+
+            }
+           
 
 
 
-            
+
+
         }
-       
 
         public void WriteAllDrivers()
         {

@@ -28,7 +28,8 @@ namespace TaxiAdmin
 				Console.WriteLine("______Choose an option_______: ");
 				Console.WriteLine("1. Show available taxi");
 				Console.WriteLine("2. Show information of taxi drivers");
-				Console.WriteLine("3. Rent taxi or bus");
+
+				Console.WriteLine("3. Edit taxi or bus");
 				Console.WriteLine("4. Exit");
 
 
@@ -75,8 +76,8 @@ namespace TaxiAdmin
 							int number = Convert.ToInt32(Console.ReadLine());
 							string color = Console.ReadLine();
 							int MaxSpeed = Convert.ToInt32(Console.ReadLine());
-
-							Taxi t = new Taxi(make, number, color, MaxSpeed);
+							string img = Console.ReadLine();
+							Taxi t = new Taxi(make, number, color, MaxSpeed,img);
 							Console.WriteLine("Enter Driver name,rate and price:\n");
 							string name = Console.ReadLine();
 							int rate = Convert.ToInt32(Console.ReadLine());
@@ -94,9 +95,10 @@ namespace TaxiAdmin
 							int number = Convert.ToInt32(Console.ReadLine());
 							string color = Console.ReadLine();
 							int MaxSpeed = Convert.ToInt32(Console.ReadLine());
+							string img = Console.ReadLine();
 
 
-							Bus t = new Bus(make, number, color, MaxSpeed);
+							Bus t = new Bus(make, number, color, MaxSpeed,img);
 							Console.WriteLine("Enter Driver name,rate and price:\n");
 							string name = Console.ReadLine();
 							int rate = Convert.ToInt32(Console.ReadLine());
@@ -146,12 +148,13 @@ namespace TaxiAdmin
 
 				else if (user == '3')
 				{
-					com.RentTaxi();
+					com.EditTaxi();
 				}
 				else if (user == '4')
 				{
 					break;
 				}
+				
 				else
 				{
 

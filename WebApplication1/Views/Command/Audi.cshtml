@@ -9,18 +9,51 @@
 
 <div class="row mt-5 mb-2">
 
-    @{
-        <div class="col-lg-6">
+   
+   
 
-            <img class="img-thumbnail" id="newbus" src="@Model.bus[1].Img" alt="@Model.bus[1].Make" />
-            <h2> @Model.taxi[1].Make</h2>
-            <p class="t">@Model.taxi[1].ToString()</p>
-            <p><a class="btn btn-warning" href="https://localhost:5001/Command/InfoCar">More_Info</a> </p>
+
+
+
+
+
+
+
+
+
+        @{ foreach (var o in Model.taxi)
+            {
+
+                if (o.Make == "Audi"||o.Make== "Audi____NOT_AVAILABLE")
+                {
+
+                    <div class="col-lg-6">
+
+                        <img class="img-thumbnail" src="@o.Img" alt="@o.Make" />
+                        <h2> @o.Make</h2>
+                        <p class="t">@o.ToString()</p>
+                        <p><a class="btn btn-warning" href="https://localhost:5001/Command/InfoCar">More_Info</a> </p>
+
+
+
+                    </div>
+                    }
+
+
+
+
+                }
+            }
+
+
+
+
+
 
 
 
         </div>
-    }
+    
 
 
 

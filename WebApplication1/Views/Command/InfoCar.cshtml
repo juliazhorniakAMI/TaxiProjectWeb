@@ -10,55 +10,66 @@
 
 
 
-   
 <!-- Marketing messaging and featurettes
     ================================================== -->
-    <!-- Wrap the rest of the page in another container to center all the content. -->
+<!-- Wrap the rest of the page in another container to center all the content. -->
 
-    <div class="container marketing">
+<div class="container marketing">
 
-        <!-- Three columns of text below the carousel -->
-        <div class="row">
-            <div class="col-lg-4">
-                <img class="rounded-circle" width="140" height="140" src="/img/people.png" alt="Alternate Text" />
-                @{
+    <!-- Three columns of text below the carousel -->
+    <div class="row">
+        @{ foreach (var o in Model.drcar)
+            {
+
+
+
+
+
+                <div class="col-lg-4">
+                    <img class="rounded-circle" width="140" height="140" src="/img/people.png" alt="Alternate Text" />
+
+
+
                     <ul class="list">
-                      
-                                        <li> <strong class="name">@Model.drcar[0].Name</strong></li></ul>
-                       
 
-
-                            <strong style="color:aliceblue;font-size:25px">Rate: </strong>
-                            <article class="art">@Model.drcar[0].Rate</article>
-                            <strong style="color:aliceblue;font-size:25px">Price: </strong>
-                            <article class="art">@Model.drcar[0].Price</article>
-                            <br />
+                        <li> <strong class="name">@o.Name</strong></li>
+                    </ul>
 
 
 
-                            <strong style="color:aliceblue;font-size:30px">Taxi: </strong> <br />
-                            <article class="art"> @Model.taxi[0].ToString()</article>
+                    <strong style="color:aliceblue;font-size:25px">Rate: </strong>
+                    <article class="art">@o.Rate</article>
+                    <strong style="color:aliceblue;font-size:25px">Price: </strong>
+                    <article class="art">@o.Price</article>
+                    <br />
 
 
 
+                    <strong style="color:aliceblue;font-size:30px">Taxi: </strong> <br />
+                    <article class="art"> @o.ToString()</article>
 
-
-
-
-
-                            }
 
                 </div>
-            <div class="col-lg-4">
+            }
+
+
+
+
+
+
+        }
+
+
+        @*<div class="col-lg-4">
 
 
                 <img class="rounded-circle" width="140" height="140" src="/img/people.png" alt="Alternate Text" />
                 @{
                     <ul class="list">
 
-                        <li> <strong class="name">@Model.drcar[1].Name</strong></li>
+                        <li> <strong class="name">@Model.drbus[1].Name</strong></li>
                     </ul>
-                 
+
 
 
 
@@ -67,17 +78,17 @@
 
 
                     <strong style="color:aliceblue;font-size:25px">Rate: </strong>
-                    <article class="art">@Model.drcar[1].Rate</article>
+                    <article class="art">@Model.drbus[1].Rate</article>
 
                     <strong style="color:aliceblue;font-size:25px">Price: </strong>
                     <article class="art">
-                        @Model.drcar[1].Price
+                        @Model.drbus[1].Price
                     </article>
                     <br />
 
                     <strong style="color:aliceblue;font-size:25px">Taxi: </strong>
                     <article class="art">
-                        @Model.taxi[1].ToString()
+                        @Model.bus[1].ToString()
                     </article>
 
 
@@ -89,19 +100,19 @@
 
 
                 }
-            </div>
-          
-    </div>
-
-
-        
-
-        
-
-    
-
-   
+            </div>*@
 
     </div>
 
-  
+
+
+
+
+
+
+
+
+
+</div>
+
+

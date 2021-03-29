@@ -1,2 +1,0 @@
-Mersedes-benz 1232 white 222 /img/mercedesbenz.jpg
-Nissan 1212 brown 120 /img/nissanbus.jpg

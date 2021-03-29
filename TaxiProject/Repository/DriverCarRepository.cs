@@ -16,9 +16,9 @@ namespace TaxiProject_2._1.Repository
 
 
 
-        public bool Add(DriverCar b)
+        public override void Add(DriverCar b)
         {
-            return AddRep(b);
+            AddRep(b);
         }
 
 
@@ -31,7 +31,7 @@ namespace TaxiProject_2._1.Repository
                 string name;
                 int rate;
                 int price;
-                using (StreamReader sr = new StreamReader("Drivercar.txt"))
+                using (StreamReader sr = new StreamReader(@"C:\c#\WebApplication1\TaxiAdmin\bin\Debug\netcoreapp3.1\Drivercar.txt"))
                 {
 
                     while (!sr.EndOfStream)
@@ -87,7 +87,7 @@ namespace TaxiProject_2._1.Repository
             {
 
 
-                using (StreamWriter sw = new StreamWriter("Drivercar.txt", false))
+                using (StreamWriter sw = new StreamWriter(@"C:\c#\WebApplication1\TaxiAdmin\bin\Debug\netcoreapp3.1\Drivercar.txt", false))
                 {
 
                     foreach (DriverCar o in entity)

@@ -11,10 +11,12 @@ namespace TaxiProject_2._1.Repository
         List<T> Ent { get;  }
         void ReadFromStorage();
         void WriteToStorage();
-        bool AddRep(T en);
-        bool Add(T en);
+        void AddRep(T en);
+        void Add(T en);
         void deleteByIndex(int ind);
         void ChangeRateVehicle(int index, int rating);
+        void ChangeNameTaxi(int index, string name);
+        void ChangeImgTaxi(int index, string name);
 
     }
 }

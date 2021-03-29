@@ -16,9 +16,9 @@ namespace TaxiProject_2._1.Repository
 			base.ReadFromStorage();
 		}
 
-		public bool Add(Taxi taxi)
+		public override void Add(Taxi taxi)
 		{
-			return AddRep(taxi);
+			 AddRep(taxi);
 		}
 
 
@@ -37,7 +37,7 @@ namespace TaxiProject_2._1.Repository
 				int MaxSpeed;
 				string img;
 
-				using (StreamReader sr = new StreamReader("Taxi.txt"))
+				using (StreamReader sr = new StreamReader(@"C:\c#\WebApplication1\TaxiAdmin\bin\Debug\netcoreapp3.1\Taxi.txt"))
 				{
 
 					while (!sr.EndOfStream)
@@ -74,12 +74,25 @@ namespace TaxiProject_2._1.Repository
 			}
 		}
 
-        public static explicit operator TaxiRepository(List<Taxi> v)
-        {
-            throw new NotImplementedException();
-        }
+        //public static explicit operator TaxiRepository(List<Taxi> v)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
-        public override void WriteToStorage()
+
+		public override void ChangeNameTaxi(int index, string name)
+		{
+
+			entity[index].Make = name;
+
+		}
+		public override void ChangeImgTaxi(int index, string name)
+		{
+
+			entity[index].Img= name;
+
+		}
+		public override void WriteToStorage()
 		{
 			
 
@@ -90,7 +103,7 @@ namespace TaxiProject_2._1.Repository
 			{
 				
 
-				using (StreamWriter sw = new StreamWriter("Taxi.txt",false))
+				using (StreamWriter sw = new StreamWriter(@"C:\c#\WebApplication1\TaxiAdmin\bin\Debug\netcoreapp3.1\Taxi.txt", false))
 				{
 
 					foreach (Taxi o in entity)

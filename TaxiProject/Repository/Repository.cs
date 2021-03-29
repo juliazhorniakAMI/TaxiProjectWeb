@@ -40,19 +40,28 @@ namespace TaxiProject_2._1.Repository
 
 
 		}
+		public virtual void ChangeNameTaxi(int index, string name)
+		{
 
+
+		}
+		public virtual void ChangeImgTaxi(int index, string name)
+		{
+
+
+		}
 		~Repository()
 		{
 			WriteToStorage();
 
 		}
 
-        public static explicit operator Repository<Entity>(List<Taxi> v)
-        {
-            throw new NotImplementedException();
-        }
+        //public static explicit operator Repository<Entity>(List<Taxi> v)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
-        public bool AddRep(Entity en)
+        public void AddRep(Entity en)
 		{
 			entity.Add(en);
 		
@@ -61,10 +70,9 @@ namespace TaxiProject_2._1.Repository
 			
 
 
-			return true;
 		}
 
-		public bool Add(Entity en) { throw new NotImplementedException(); }
+		public virtual void Add(Entity en) {  }
 
 	}
 }
